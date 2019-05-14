@@ -1,10 +1,11 @@
 import React from 'react'
 import { Header } from './components'
-import './App.css'
+import classes from './App.module.scss'
 
 function App() {
+	console.log(classes)
 	return (
-		<div className="App">
+		<div className={classes.App}>
 			<Header />
 		</div>
 	)
