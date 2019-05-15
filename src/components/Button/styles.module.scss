@@ -1,0 +1,17 @@
+@import '../../scss/vars.scss';
+
+.button {
+	border-radius: $input-radius;
+  padding: 15px 40px;
+  font-size: 18px;
+  background-color: $primary-regular;
+  color: black;
+  border: none;
+	&:disabled {
+    background-color: $passive-color;
+    color: #ffffff;
+  }
+  &:focus{
+    outline: none;
+  }
+}
