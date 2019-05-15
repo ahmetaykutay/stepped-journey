@@ -1,11 +1,13 @@
 import React from 'react'
+import StepContainer from '../../StepContainer/StepContainer'
 import Title from '../../Title/Title'
 import Text from '../../Text/Text'
 
 export default function BrandName() {
   return (
-    <div>
+    <StepContainer>
       <Title>brand name</Title>
-    </div>
+      <Text>What is the name of your brand?</Text>
+    </StepContainer>
   )
 }
