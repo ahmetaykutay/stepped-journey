@@ -4,10 +4,11 @@ import classes from './App.module.scss'
 import withLayout from './HOC/layout'
 import { actions } from './store'
 import BrandName from './components/steps/BrandName/BrandName'
+import Describe from './components/steps/Describe/Describe'
 
 const stepComponentMap = {
 	'brand-name': <BrandName />,
-	describe: <p>describe</p>,
+	describe: <Describe />,
 	objectives: <p>objectives</p>
 }
 

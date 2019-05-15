@@ -1,29 +1,26 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import { actions } from '../../../store'
 import StepContainer from '../../StepContainer/StepContainer'
 import Title from '../../Title/Title'
 import Text from '../../Text/Text'
-import Input from '../../Input/Input'
 import Button from '../../Button/Button'
 import Pagination from '../../Pagination/Pagination'
+import TextArea from '../../TextArea/TextArea'
 
-function BrandName({ setBrandName, currentStepIndex, totalSteps }) {
-  const [newBrandName, setNewBrandName] = useState('')
+function BrandName({ currentStepIndex, totalSteps, setDescription }) {
+	const [newDescription, setNewDescription] = useState('')
 
 	return (
 		<StepContainer>
-			<Title>brand name</Title>
+			<Title>describe</Title>
 			<Pagination page={currentStepIndex + 1} totalPage={totalSteps} />
-			<Text>What is the name of your brand?</Text>
-			<Input
-				placeholder="Brand Name"
-				onChange={setNewBrandName}
-			/>
+			<Text>Tell us about your brand</Text>
+			<TextArea wordCount={500} onChange={setNewDescription} />
 			<Button
-				disabled={newBrandName === ''}
+				disabled={newDescription === ''}
 				onClick={() => {
-					setBrandName(newBrandName)
+					setDescription(newDescription)
 				}}
 			>
 				Next
@@ -33,12 +30,12 @@ function BrandName({ setBrandName, currentStepIndex, totalSteps }) {
 }
 
 const mapStateToProps = state => ({
-  currentStepIndex: state.journey.currentStepIndex,
-  totalSteps: state.journey.steps.length
+	currentStepIndex: state.journey.currentStepIndex,
+	totalSteps: state.journey.steps.length
 })
 
 const mapDispatchToProps = dispatch => ({
-	setBrandName: brandName => dispatch(actions.journey.setBrandName(brandName))
+	setDescription: desc => dispatch(actions.journey.setDescription(desc))
 })
 
 export default connect(
