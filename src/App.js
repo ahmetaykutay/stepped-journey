@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import classes from './App.module.scss'
 import withLayout from './HOC/layout'
 import { actions } from './store'
-import BrandName from './components/steps/BrandName'
+import BrandName from './components/steps/BrandName/BrandName'
 
 const stepComponentMap = {
 	'brand-name': <BrandName />,
