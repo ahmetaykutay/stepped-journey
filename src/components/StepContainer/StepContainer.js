@@ -8,11 +8,12 @@ import Button from '../Button/Button'
 import Pagination from '../Pagination/Pagination'
 import BrandName from './steps/BrandName/BrandName'
 import Describe from './steps/Describe/Describe'
+import Objectives from './steps/Objectives/Objectives'
 
 const stepComponentMap = {
 	'brand-name': props => <BrandName {...props} />,
 	describe: props => <Describe {...props} />,
-	objectives: props => <p>objectives</p>
+	objectives: props => <Objectives {...props} />
 }
 
 function StepContainer({
@@ -22,12 +23,13 @@ function StepContainer({
 	currentStep
 }) {
 	const [stepValue, setStepValue] = useState(null)
+	const isLastStep = currentStepIndex + 1 === totalSteps
 
 	return (
 		<div className={classes.container}>
 			<Title>{currentStep.title}</Title>
 			<Pagination page={currentStepIndex + 1} totalPage={totalSteps} />
-			<Text>{currentStep.secription}</Text>
+			<Text>{currentStep.description}</Text>
 			{stepComponentMap[currentStep.name]({ updateStepValue: setStepValue })}
 			<Button
 				disabled={!stepValue}
@@ -35,7 +37,7 @@ function StepContainer({
 					updateStep(stepValue)
 				}}
 			>
-				Next
+				{isLastStep ? 'Finish Objectives' : 'Next'}
 			</Button>
 		</div>
 	)

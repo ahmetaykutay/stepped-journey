@@ -1,15 +1,47 @@
 @import '../../scss/vars.scss';
 
+.container {
+	width: 100%;
+	position: relative;
+}
+
 .input {
-	padding: 15px 20px;
+	padding: 15px 25px;
 	width: 100%;
 	border-radius: $input-radius;
 	border: 1px solid $passive-color-dark;
 	font-size: 16px;
+	height: 46px;
 	&:focus {
 		outline: none;
 	}
 	&::placeholder {
 		color: $passive-color-dark;
+	}
+
+	&.rounded {
+		border-radius: 46px;
+	}
+}
+
+.addBtn {
+	position: absolute;
+	top: 0;
+	right: 15px;
+	width: 25px;
+	height: 100%;
+	font-size: 24px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	transition: all 0.2s linear;
+	color: #eee;
+	&.active {
+		color: $passive-color-dark * 0.5;
+		cursor: pointer;
+		&:hover {
+			color: black;
+			transform: scale(1.3);
+		}
 	}
 }

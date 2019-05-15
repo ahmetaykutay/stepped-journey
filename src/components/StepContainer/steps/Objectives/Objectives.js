@@ -1,44 +1,31 @@
 import React, { useState } from 'react'
-import { connect } from 'react-redux'
-import { actions } from '../../../../store'
-import StepContainer from '../../StepContainer'
-import Title from '../../../Title/Title'
-import Text from '../../../Text/Text'
-import Button from '../../../Button/Button'
-import Pagination from '../../../Pagination/Pagination'
-import TextArea from '../../../TextArea/TextArea'
+import Input from '../../../Input/Input'
 
-function BrandName({ currentStepIndex, totalSteps, setDescription }) {
-	const [newDescription, setNewDescription] = useState('')
+function Objectives({ updateStepValue }) {
+	const [newObjective, setNewObjective] = useState('')
+	const [objectives, setObjectives] = useState([])
+
+	const addObjective = () => {
+		const objtvArr = [...objectives]
+		objtvArr.push(newObjective)
+		setObjectives(objtvArr)
+		updateStepValue(objtvArr)
+	}
 
 	return (
-		<StepContainer>
-			<Title>objective</Title>
-			<Pagination page={currentStepIndex + 1} totalPage={totalSteps} />
-			<Text>Tell us about your brand</Text>
-			<TextArea wordCount={500} onChange={setNewDescription} />
-			<Button
-				disabled={newDescription === ''}
-				onClick={() => {
-					// setDescription(newDescription)
-				}}
-			>
-				Next
-			</Button>
-		</StepContainer>
+		<div style={{ width: '70%' }}>
+			<Input
+				rounded
+				placeholder="We want to go viral"
+				onChange={setNewObjective}
+				onAdd={addObjective}
+				isAddDisabled={newObjective === ''}
+			/>
+			{objectives.map(o => (
+				<p key={o}>{o}</p>
+			))}
+		</div>
 	)
 }
 
-const mapStateToProps = state => ({
-	currentStepIndex: state.journey.currentStepIndex,
-	totalSteps: state.journey.steps.length
-})
-
-const mapDispatchToProps = dispatch => ({
-	setDescription: desc => dispatch(actions.journey.setDescription(desc))
-})
-
-export default connect(
-	mapStateToProps,
-	mapDispatchToProps
-)(BrandName)
+export default Objectives

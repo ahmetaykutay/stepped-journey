@@ -21,7 +21,8 @@ const initialState = {
 			description: 'What business objectives do you want to accomplish?'
 		}
 	],
-	currentStepIndex: 0
+	currentStepIndex: 2,
+	done: false
 }
 
 function getUpdatedSteps(steps, newValue, stepIndex) {
@@ -34,9 +35,12 @@ export default function(state = initialState, action) {
 	const { type, payload } = action
 	switch (type) {
 		case NEXT_STEP:
+			const newStep = state.currentStepIndex + 1
+			const done = newStep === state.steps.length
 			return {
 				...state,
-				currentStepIndex: (state.currentStepIndex + 1) % state.steps.length
+				currentStepIndex: newStep,
+				done
 			}
 		case UPDATE_STEP:
 			return {
