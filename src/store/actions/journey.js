@@ -1,15 +1,10 @@
-import { NEXT_STEP, SET_BRAND_NAME, SET_DESCRIPTION } from './actionTypes'
+import { NEXT_STEP, UPDATE_STEP } from './actionTypes'
 
 export const nextStep = () => ({
   type: NEXT_STEP
 })
 
-export const setBrandName = payload => ({
-  type: SET_BRAND_NAME,
-  payload
-})
-
-export const setDescription = payload => ({
-  type: SET_DESCRIPTION,
+export const updateStep = payload => ({
+  type: UPDATE_STEP,
   payload
 })

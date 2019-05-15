@@ -1,3 +1,2 @@
 export const NEXT_STEP = 'NEXT_STEP'
-export const SET_BRAND_NAME = 'SET_BRAND_NAME'
-export const SET_DESCRIPTION = 'SET_DESCRIPTION'
+export const UPDATE_STEP = 'UPDATE_STEP'

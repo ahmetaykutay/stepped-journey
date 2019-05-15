@@ -1,5 +1,5 @@
 import { fork, takeEvery, put } from 'redux-saga/effects'
-import { SET_BRAND_NAME, SET_DESCRIPTION } from '../actions/actionTypes'
+import { UPDATE_STEP } from '../actions/actionTypes'
 import { nextStep } from '../actions/journey'
 
 function* goToNextStep() {
@@ -11,8 +11,7 @@ function* goToNextStep() {
 }
 
 function* watch() {
-	yield takeEvery(SET_BRAND_NAME, goToNextStep)
-	yield takeEvery(SET_DESCRIPTION, goToNextStep)
+	yield takeEvery(UPDATE_STEP, goToNextStep)
 }
 
 export default fork(watch)

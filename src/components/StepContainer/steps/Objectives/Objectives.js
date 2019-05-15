@@ -1,26 +1,26 @@
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
-import { actions } from '../../../store'
-import StepContainer from '../../StepContainer/StepContainer'
-import Title from '../../Title/Title'
-import Text from '../../Text/Text'
-import Button from '../../Button/Button'
-import Pagination from '../../Pagination/Pagination'
-import TextArea from '../../TextArea/TextArea'
+import { actions } from '../../../../store'
+import StepContainer from '../../StepContainer'
+import Title from '../../../Title/Title'
+import Text from '../../../Text/Text'
+import Button from '../../../Button/Button'
+import Pagination from '../../../Pagination/Pagination'
+import TextArea from '../../../TextArea/TextArea'
 
 function BrandName({ currentStepIndex, totalSteps, setDescription }) {
 	const [newDescription, setNewDescription] = useState('')
 
 	return (
 		<StepContainer>
-			<Title>describe</Title>
+			<Title>objective</Title>
 			<Pagination page={currentStepIndex + 1} totalPage={totalSteps} />
 			<Text>Tell us about your brand</Text>
 			<TextArea wordCount={500} onChange={setNewDescription} />
 			<Button
 				disabled={newDescription === ''}
 				onClick={() => {
-					setDescription(newDescription)
+					// setDescription(newDescription)
 				}}
 			>
 				Next
