@@ -1,0 +1,15 @@
+.title{
+  text-transform: capitalize;
+  color: #333333;
+  position: relative;
+  &::before{
+    content: "";
+    border-top: 7px solid yellow;
+    border-left: 7px solid yellow;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: -13px;
+    left: -20px;
+  }
+}
