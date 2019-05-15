@@ -6,6 +6,7 @@ export default function Button({ children, text, disabled, onClick }) {
 		<button
 			className={[classes.button, disabled ? classes.disabled : null].join(' ')}
       disabled={disabled}
+			onClick={onClick}
 		>
 			{children || text}
 		</button>
