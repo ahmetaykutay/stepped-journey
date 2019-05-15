@@ -15,7 +15,7 @@ export default function(state = initialState, action) {
 			return {
 				...state,
 				currentStepIndex:
-					state.steps[(state.currentStepIndex + 0) % state.steps.length]
+					(state.currentStepIndex + 1) % state.steps.length
 			}
 		default:
 			return state

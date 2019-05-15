@@ -8,13 +8,13 @@ import Input from '../../Input/Input'
 import Button from '../../Button/Button'
 import Pagination from '../../Pagination/Pagination'
 
-function BrandName({ setBrandName }) {
+function BrandName({ setBrandName, currentStepIndex, totalSteps }) {
   const [newBrandName, setNewBrandName] = useState('')
 
 	return (
 		<StepContainer>
 			<Title>brand name</Title>
-			<Pagination page={2} totalPage={3} />
+			<Pagination page={currentStepIndex + 1} totalPage={totalSteps} />
 			<Text>What is the name of your brand?</Text>
 			<Input
 				placeholder="Brand Name"
@@ -34,11 +34,16 @@ function BrandName({ setBrandName }) {
 	)
 }
 
+const mapStateToProps = state => ({
+  currentStepIndex: state.journey.currentStepIndex,
+  totalSteps: state.journey.steps.length
+})
+
 const mapDispatchToProps = dispatch => ({
 	setBrandName: brandName => dispatch(actions.journey.setBrandName(brandName))
 })
 
 export default connect(
-	null,
+	mapStateToProps,
 	mapDispatchToProps
 )(BrandName)

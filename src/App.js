@@ -7,8 +7,8 @@ import BrandName from './components/steps/BrandName/BrandName'
 
 const stepComponentMap = {
 	'brand-name': <BrandName />,
-	describe: 12,
-	objectives: 12
+	describe: <p>describe</p>,
+	objectives: <p>objectives</p>
 }
 
 function App({ currentStep }) {
