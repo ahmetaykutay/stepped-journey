@@ -2,7 +2,7 @@ import { NEXT_STEP } from '../actions/actionTypes'
 
 const initialState = {
 	steps: ['brand-name', 'describe', 'objectives'],
-	currentStep: 'brand-name'
+	currentStepIndex: 0,
 }
 
 export default function(state = initialState, action) {

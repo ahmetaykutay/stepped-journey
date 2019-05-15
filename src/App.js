@@ -16,7 +16,7 @@ function App({ currentStep }) {
 }
 
 const mapStateToProps = state => ({
-	currentStep: state.journey.currentStep
+	currentStep: state.journey.steps[state.journey.currentStepIndex]
 })
 
 const mapDispatchToProps = dispatch => ({
