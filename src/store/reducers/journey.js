@@ -21,7 +21,7 @@ const initialState = {
 			description: 'What business objectives do you want to accomplish?'
 		}
 	],
-	currentStepIndex: 2,
+	currentStepIndex: 0,
 	done: false
 }
 

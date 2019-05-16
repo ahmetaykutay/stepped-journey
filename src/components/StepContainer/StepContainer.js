@@ -24,6 +24,9 @@ function StepContainer({
 }) {
 	const [stepValue, setStepValue] = useState(null)
 	const isLastStep = currentStepIndex + 1 === totalSteps
+	let isButtonDisabled = false
+	if (!stepValue || (Array.isArray(stepValue) && stepValue.length === 0))
+		isButtonDisabled = true
 
 	return (
 		<div className={classes.container}>
@@ -32,9 +35,10 @@ function StepContainer({
 			<Text>{currentStep.description}</Text>
 			{stepComponentMap[currentStep.name]({ updateStepValue: setStepValue })}
 			<Button
-				disabled={!stepValue}
+				disabled={isButtonDisabled}
 				onClick={() => {
 					updateStep(stepValue)
+					setStepValue(null)
 				}}
 			>
 				{isLastStep ? 'Finish Objectives' : 'Next'}

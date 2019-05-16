@@ -19,6 +19,7 @@ function Objectives({ updateStepValue }) {
 		const newOb = [...objectives]
 		newOb.splice(index, 1)
 		setObjectives(newOb)
+		updateStepValue(newOb)
 	}
 
 	return (
