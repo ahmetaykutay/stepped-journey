@@ -7,7 +7,8 @@ export default function Input({
 	style,
 	rounded,
 	onAdd,
-	isAddDisabled
+	isAddDisabled,
+	value
 }) {
 	return (
 		<div style={style} className={classes.container}>
@@ -16,6 +17,7 @@ export default function Input({
 				type="text"
 				placeholder={placeholder}
 				onChange={e => onChange(e.currentTarget.value)}
+				value={value}
 			/>
 			{typeof onAdd === 'function' ? (
 				<div

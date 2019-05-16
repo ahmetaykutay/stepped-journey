@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import Input from '../../../Input/Input'
+import Chip from '../../../Chip/Chip'
+import classes from './styles.module.scss'
 
 function Objectives({ updateStepValue }) {
 	const [newObjective, setNewObjective] = useState('')
@@ -10,6 +12,7 @@ function Objectives({ updateStepValue }) {
 		objtvArr.push(newObjective)
 		setObjectives(objtvArr)
 		updateStepValue(objtvArr)
+		setNewObjective('')
 	}
 
 	return (
@@ -20,10 +23,13 @@ function Objectives({ updateStepValue }) {
 				onChange={setNewObjective}
 				onAdd={addObjective}
 				isAddDisabled={newObjective === ''}
+				value={newObjective}
 			/>
-			{objectives.map(o => (
-				<p key={o}>{o}</p>
-			))}
+			<div className={classes.chipContainer}>
+				{objectives.map(o => (
+					<Chip key={o} text={o} />
+				))}
+			</div>
 		</div>
 	)
 }

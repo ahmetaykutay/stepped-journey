@@ -4,7 +4,7 @@ import classes from './App.module.scss'
 import withLayout from './HOC/layout'
 import { StepContainer } from './components'
 
-function App({ currentStep, done }) {
+function App({ done }) {
 	return (
 		<div className={classes.App}>{done ? <p>done</p> : <StepContainer />}</div>
 	)
