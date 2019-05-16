@@ -15,6 +15,12 @@ function Objectives({ updateStepValue }) {
 		setNewObjective('')
 	}
 
+	const removeObjective = index => {
+		const newOb = [...objectives]
+		newOb.splice(index, 1)
+		setObjectives(newOb)
+	}
+
 	return (
 		<div style={{ width: '70%' }}>
 			<Input
@@ -26,8 +32,13 @@ function Objectives({ updateStepValue }) {
 				value={newObjective}
 			/>
 			<div className={classes.chipContainer}>
-				{objectives.map(o => (
-					<Chip key={o} text={o} />
+				{objectives.map((o, i) => (
+					<Chip
+						style={{ marginRight: '15px', marginTop: '20px' }}
+						key={o}
+						text={o}
+						onDelete={() => removeObjective(i)}
+					/>
 				))}
 			</div>
 		</div>
