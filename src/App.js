@@ -6,7 +6,7 @@ import { StepContainer } from './components'
 
 function App({ done }) {
 	return (
-		<div className={classes.App}>{done ? <p>done</p> : <StepContainer />}</div>
+		<div className={classes.App}>{done ? <p>Your journey ends here</p> : <StepContainer />}</div>
 	)
 }
 
