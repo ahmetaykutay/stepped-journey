@@ -9,7 +9,7 @@ export default function Done({ steps }) {
 				<div key={s.name}>
 					<h4 style={{ marginTop: '30px' }}>{s.title}</h4>
 					{Array.isArray(s.value) ? (
-						s.value.map(v => <p>{v}</p>)
+						s.value.map(v => <p key={v}>{v}</p>)
 					) : (
 						<p>{s.value}</p>
 					)}
